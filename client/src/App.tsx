@@ -1,6 +1,11 @@
+import { useEffect } from "react";
 import { Link } from "react-router";
+import { getPong } from "./service/news";
 
 const App = () => {
+  useEffect(() => {
+    getPong();
+  }, []);
   return (
     <div className="container mx-auto text-center p-10">
       <h1 className="text-6xl">Pulse</h1>
