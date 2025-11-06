@@ -4,6 +4,7 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -15,6 +16,10 @@ func pong(c *gin.Context) {
 func main() {
 	l := log.Default()
 	r := gin.Default()
+	cors_config := cors.DefaultConfig()
+	cors_config.AllowOrigins = []string{"http://localhost:5173", "http://saxenabhishek.me/pulse/"}
+	// config.AllowAllOrigins = true
+	r.Use(cors.New(cors_config))
 	l.Printf("Started Pulse Server")
 	r.GET("/ping", pong)
 	r.Run()
