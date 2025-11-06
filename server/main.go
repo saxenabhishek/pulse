@@ -17,7 +17,7 @@ func main() {
 	l := log.Default()
 	r := gin.Default()
 	cors_config := cors.DefaultConfig()
-	cors_config.AllowOrigins = []string{"http://localhost:5173", "http://saxenabhishek.me/pulse/"}
+	cors_config.AllowOrigins = []string{"http://localhost:5500", "https://saxenabhishek.me"}
 	// config.AllowAllOrigins = true
 	r.Use(cors.New(cors_config))
 	l.Printf("Started Pulse Server")
