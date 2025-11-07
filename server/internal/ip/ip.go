@@ -10,6 +10,8 @@ import (
 	"github.com/saxenabhishek/pulse/server/internal/common"
 )
 
+const IP_BASE_URL = "http://ip-api.com/json"
+
 var regionCache sync.Map
 
 type Response struct {
@@ -34,12 +36,12 @@ func validate_body(body []byte) (*Response, error) {
 	return responseObject, nil
 }
 
-func GetRegionFromContext(c *gin.Context, baseURL string) (string, error) {
+func GetRegionFromContext(c *gin.Context) (string, error) {
 	ip := c.ClientIP()
 	if v, ok := regionCache.Load(ip); ok {
 		return v.(string), nil
 	}
-	body, err := common.MakeHttpCall(common.Construct_url(baseURL, ip), http.DefaultClient)
+	body, err := common.MakeHttpCall(common.Construct_url(IP_BASE_URL, ip), http.DefaultClient)
 	if err != nil {
 		return "", err
 	}
