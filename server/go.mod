@@ -1,4 +1,4 @@
-module saxenabhishek.me/pulse/server
+module github.com/saxenabhishek/pulse/server
 
 go 1.25.3
 
