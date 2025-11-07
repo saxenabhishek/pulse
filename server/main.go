@@ -8,24 +8,26 @@ import (
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/saxenabhishek/pulse/server/internal/ip"
+	"github.com/saxenabhishek/pulse/server/internal/news"
 )
-
-const IP_BASE_URL = "http://ip-api.com/json"
 
 func pong(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"message": "pong"})
 }
 
 func getIPdetail(c *gin.Context) {
-	rg, err:= ip.GetRegionFromContext(c, IP_BASE_URL)
+	rg, err := ip.GetRegionFromContext(c)
+	if err != nil {
+		rg = ""
+	}
+	content, err := news.GetContentCached(rg)
 	if err != nil {
 		c.Error(err)
 		c.AbortWithStatus(http.StatusInternalServerError)
 		return
 	}
-	c.JSON(http.StatusOK, gin.H{"region":rg})
+	c.JSON(http.StatusOK, content)
 }
-
 
 func main() {
 	gin.SetMode(gin.DebugMode)
@@ -45,5 +47,5 @@ func main() {
 	l.Printf("Started Pulse Server")
 	r.GET("/ping", pong)
 	r.GET("/content", getIPdetail)
-	r.Run(":"+PORT)
+	r.Run(":" + PORT)
 }
