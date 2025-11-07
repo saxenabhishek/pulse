@@ -15,7 +15,9 @@ import (
 const BASE_URL = "https://content.guardianapis.com/search"
 const API_KEY = "test"
 
-var c = cache.New(5*time.Minute, 10*time.Minute)
+var httpcall = common.MakeHttpCall
+var showFields = []string{"standfirst", "wordcount", "byline"}
+var c = cache.New(15*time.Minute, 20*time.Minute)
 
 type fields struct {
 	Standfirst string `json:"standfirst"`
@@ -39,28 +41,27 @@ type res struct {
 	Region  string
 }
 
-type Response struct {
+type APIResponse struct {
 	Response res `json:"response"`
 }
 
-func validate_body(body []byte) (*res, error) {
-	var ResponseObj *Response = &Response{}
-	err := json.Unmarshal(body, ResponseObj)
+func validateBody(body []byte) (res, error) {
+	var apiResp APIResponse
+	err := json.Unmarshal(body, &apiResp)
 	if err != nil {
-		return &ResponseObj.Response, err
+		return res{}, err
 	}
-	if ResponseObj.Response.Status != "ok" {
-		return &ResponseObj.Response, errors.New("server responded with not ok status")
+	if apiResp.Response.Status != "ok" {
+		return res{}, errors.New("server responded with not ok status")
 	}
-	return &ResponseObj.Response, nil
+	return apiResp.Response, nil
 }
 
 func constructShowFields() string {
-	fields := []string{"standfirst", "wordcount", "byline"}
-	return strings.Join(fields, ",")
+	return strings.Join(showFields, ",")
 }
 
-func construct_query(region string) string {
+func constructQuery(region string) string {
 	params := url.Values{}
 	params.Set("api-key", API_KEY)
 	params.Set("show-fields", constructShowFields())
@@ -73,17 +74,17 @@ func construct_query(region string) string {
 }
 
 func GetContent(region string) (*res, error) {
-	query := construct_query(region)
-	body, err := common.MakeHttpCall(query, http.DefaultClient)
+	query := constructQuery(region)
+	body, err := httpcall(query, http.DefaultClient)
 	if err != nil {
 		return nil, err
 	}
-	res, err := validate_body(body)
+	res, err := validateBody(body)
 	if err != nil {
 		return nil, err
 	}
 	res.Region = region
-	return res, nil
+	return &res, nil
 }
 
 func GetContentCached(region string) (*res, error) {
