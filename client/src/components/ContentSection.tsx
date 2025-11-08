@@ -11,48 +11,57 @@ export const ContentSection: React.FC<props> = ({
   item,
 }): React.JSX.Element => {
   return (
-    <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full gap-2 lg:gap-4">
+    <>
       <h3 className="border-b-2 pb-2 text-4xl border-primary tracking-tight col-span-full py-4 font-cookie">
         {item.sectionName}
       </h3>
-      {item.articles.map((article, arId) => (
-        <article
-          key={article.id}
-          className={`flex flex-col align-middle justify-items-center text-xs sm:text-base py-4 font-noto font-stretch-extra-condensed ${
-            arId == 0
-              ? "col-span-full lg:flex-row"
-              : " border-b-2 border-stone-300"
-          }`}
-        >
-          <AspectRatio
-            ratio={arId == 0 ? 3 / 1 : 16 / 9}
-            className="bg-muted rounded-lg"
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full gap-2 lg:gap-4">
+        {item.articles.map((article, arId) => (
+          <article
+            key={article.id}
+            className={`flex flex-col py-4 group ${
+              arId == 0 ? "col-span-full lg:flex-row items-center" : ""
+            }`}
           >
-            <img
-              className="h-full w-full rounded-lg object-cover"
-              srcSet={article.mainImg?.srcset}
-              sizes="(max-width: 600px) 480px, 800px"
-              alt={article.mainImg?.altText}
-            />
-          </AspectRatio>
-          <div className="pl-2 ">
-            <h4 className="text-base sm:text-2xl py-1 font-oldStdtt  sm:leading-9 tracking-wide">
-              {article.webTitle}
-            </h4>
+            <AspectRatio
+              ratio={arId == 0 ? 3 / 1 : 16 / 9}
+              className="bg-muted rounded-lg group-hover:scale-95 transition-all"
+            >
+              {article.mainImg && (
+                <img
+                  className="h-full w-full rounded-lg object-cover"
+                  srcSet={article.mainImg?.srcset}
+                  sizes="(max-width: 600px) 480px, 800px"
+                  alt={article.mainImg?.altText}
+                />
+              )}
+            </AspectRatio>
+            <div className="p-6 text-xs sm:text-base font-noto text-gray-800">
+              <h4 className="text-base sm:text-3xl py-1 font-oldStdtt text-black sm:leading-9 tracking-wide group-hover:text-blue-800">
+                {article.webTitle}
+              </h4>
 
-            <h4 className="text-sm sm:text-xl pb-2 font-oldStdtt tracking-tighter">
-              {article.fields.trailText}
-            </h4>
-            {article.fields.byline && (
-              <p className="">by {article.fields.byline}</p>
-            )}
-
-            <p className="">{getReadTime(Number(article.fields.wordcount))}</p>
-            <p className="">{formatTimeAgo(article.webPublicationDate)}</p>
-          </div>
-        </article>
-      ))}
-    </section>
+              <h4 className="text-sm sm:text-xl pb-2 tracking-tighter">
+                <div
+                  dangerouslySetInnerHTML={{ __html: article.fields.trailText }}
+                />
+              </h4>
+              <p>
+                {`by ${article.fields.byline || "Anon"}  ${formatTimeAgo(
+                  article.webPublicationDate
+                )}`}
+              </p>
+              <div className="flex">
+                <span className="material-symbols-outlined mr-2">
+                  timelapse
+                </span>
+                {getReadTime(Number(article.fields.wordcount))}
+              </div>
+            </div>
+          </article>
+        ))}
+      </section>
+    </>
   );
 };
 
