@@ -17,7 +17,10 @@ export const ContentSection: React.FC<props> = ({
       </h3>
       <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full gap-2 lg:gap-4">
         {item.articles.map((article, arId) => (
-          <article
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href={article.webUrl}
             key={article.id}
             className={`flex flex-col py-4 group ${
               arId == 0 ? "col-span-full lg:flex-row items-center" : ""
@@ -43,7 +46,9 @@ export const ContentSection: React.FC<props> = ({
 
               <h4 className="text-sm sm:text-xl pb-2 tracking-tighter">
                 <div
-                  dangerouslySetInnerHTML={{ __html: article.fields.trailText }}
+                  dangerouslySetInnerHTML={{
+                    __html: article.fields.trailText,
+                  }}
                 />
               </h4>
               <p>
@@ -58,7 +63,7 @@ export const ContentSection: React.FC<props> = ({
                 {getReadTime(Number(article.fields.wordcount))}
               </div>
             </div>
-          </article>
+          </a>
         ))}
       </section>
     </>

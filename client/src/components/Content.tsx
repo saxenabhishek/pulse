@@ -1,9 +1,9 @@
 import * as React from "react";
 import type { element, result } from "@/service/news";
 import { ContentSection } from "./ContentSection";
-
+import { ProgressBar } from "./loader";
 export interface props {
-  articles?: result[];
+  articles: result[] | null;
 }
 interface ArticleImageData {
   mainImg?: {
@@ -34,12 +34,14 @@ export interface SectionGroup {
 type SectionsById = Record<string, SectionGroup>;
 
 export const Content: React.FC<props> = ({ articles }): React.JSX.Element => {
-  var gArticles: SectionsById = {};
+  var gArticles: SectionsById;
   if (articles) {
     gArticles = buildSections(articles);
   }
-  return !gArticles ? (
-    <div>Loading...</div>
+  return gArticles === undefined ? (
+    <div className="min-h-screen flex items-center justify-center">
+      <ProgressBar />
+    </div>
   ) : (
     <div>
       {Object.values(gArticles).map((grp, idx) => (
