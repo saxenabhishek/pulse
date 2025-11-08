@@ -1,167 +1,629 @@
 export const mockContentResp = {
   status: "ok",
+  region: "",
   results: [
     {
-      id: "football/2025/nov/07/slot-rejects-wenger-claim-that-wirtz-at-no-10-has-destroyed-liverpools-midfield",
-      sectionName: "Football",
-      sectionId: "football",
-      webPublicationDate: "2025-11-07T22:30:45Z",
-      webTitle:
-        "Slot rejects Wenger claim that Wirtz at No 10 has ‘destroyed Liverpool’s midfield’",
-      webUrl:
-        "https://www.theguardian.com/football/2025/nov/07/slot-rejects-wenger-claim-that-wirtz-at-no-10-has-destroyed-liverpools-midfield",
-      fields: {
-        standfirst:
-          "<ul><li><p>Arne Slot: ‘Florian needs time to adapt to teammates’</p></li><li><p>Head coach hopes to have Isak available for City clash</p></li></ul>",
-        byline: "Andy Hunter",
-        wordcount: "791",
-      },
-    },
-    {
-      id: "football/2025/nov/07/benjamin-sesko-manchester-united-ruben-amorim",
-      sectionName: "Football",
-      sectionId: "football",
-      webPublicationDate: "2025-11-07T22:30:45Z",
-      webTitle:
-        "‘He’s going to struggle’: Amorim relaxed despite Sesko’s lack of United form",
-      webUrl:
-        "https://www.theguardian.com/football/2025/nov/07/benjamin-sesko-manchester-united-ruben-amorim",
-      fields: {
-        standfirst:
-          "<ul><li><p>Manager: striker ‘works so hard and wants to succeed’</p></li><li><p>Amorim will rotate Fernandes if United return to Europe</p></li></ul>",
-        byline: "Jamie Jackson",
-        wordcount: "449",
-      },
-    },
-    {
-      id: "sport/2025/nov/07/aryna-sabalenka-elena-rybakina-wta-finals-amanda-anisimova-tennis",
-      sectionName: "Sport",
-      sectionId: "sport",
-      webPublicationDate: "2025-11-07T22:30:30Z",
-      webTitle:
-        "Sabalenka to face Rybakina in WTA Finals decider after holding off Anisimova",
-      webUrl:
-        "https://www.theguardian.com/sport/2025/nov/07/aryna-sabalenka-elena-rybakina-wta-finals-amanda-anisimova-tennis",
-      fields: {
-        standfirst:
-          "<ul><li><p>World No 1 triumphs 6-3, 3-6, 6-3 in epic semi-final</p></li><li><p>Rybakina battles back to defeat Pegula 4-6, 6-4, 6-3</p></li></ul>",
-        byline: "Tumaini Carayol",
-        wordcount: "505",
-      },
-    },
-    {
-      id: "world/2025/nov/07/passengers-face-global-disruption-as-flights-cut-amid-us-government-shutdown",
-      sectionName: "World news",
-      sectionId: "world",
-      webPublicationDate: "2025-11-07T22:25:34Z",
-      webTitle:
-        "Passengers start to feel bite of flight cuts amid US government shutdown",
-      webUrl:
-        "https://www.theguardian.com/world/2025/nov/07/passengers-face-global-disruption-as-flights-cut-amid-us-government-shutdown",
-      fields: {
-        standfirst:
-          '<p>Travellers forced to adjust their plans as longest shutdown on record continues with no sign of resolution</p><ul><li><p><a href="https://www.theguardian.com/us-news/live/2025/nov/07/donald-trump-government-shutdown-air-traffic-flights-snap-viktor-orban-hungary-ukraine-us-politics-live-news-updates">US politics live – latest updates</a></p></li><li><p><a href="https://www.theguardian.com/us-news/2025/nov/06/list-airports-flight-cuts-faa">List of US airports cutting flights on Friday </a></p></li></ul>',
-        byline: "Oliver Holmes and Edward Helmore",
-        wordcount: "1102",
-      },
-    },
-    {
-      id: "australia-news/2025/nov/08/one-year-old-girl-dies-after-being-struck-by-freight-train-in-nsw-ntwnfb",
-      sectionName: "Australia news",
-      sectionId: "australia-news",
-      webPublicationDate: "2025-11-07T22:22:38Z",
-      webTitle:
-        "One-year-old girl dies after being struck by freight train in NSW",
-      webUrl:
-        "https://www.theguardian.com/australia-news/2025/nov/08/one-year-old-girl-dies-after-being-struck-by-freight-train-in-nsw-ntwnfb",
-      fields: {
-        standfirst:
-          '<p>The toddler was treated by paramedics at the scene in the tiny village of Baan Baa on Friday night but later died in hospital</p><ul><li><p>Get our <a href="https://www.theguardian.com/email-newsletters?CMP=cvau_sfl">breaking news email</a>, <a href="https://app.adjust.com/w4u7jx3">free app</a> or <a href="https://www.theguardian.com/australia-news/series/full-story?CMP=cvau_sfl">daily news podcast</a></p></li></ul>',
-        byline: "Petra Stock",
-        wordcount: "129",
-      },
-    },
-    {
-      id: "world/2025/nov/07/orban-trump-flattery-white-house",
-      sectionName: "World news",
-      sectionId: "world",
-      webPublicationDate: "2025-11-07T22:12:23Z",
-      webTitle:
-        "Flattery will get you everywhere: Orbán lays it on thick with Trump ",
-      webUrl:
-        "https://www.theguardian.com/world/2025/nov/07/orban-trump-flattery-white-house",
-      fields: {
-        standfirst:
-          "<p>The Hungarian PM needed Trump’s help over Russia oil sanctions – so he deployed a tried-and-trusted method</p>",
-        byline: "Robert Tait in Washington",
-        wordcount: "981",
-      },
-    },
-    {
-      id: "us-news/live/2025/nov/07/donald-trump-government-shutdown-air-traffic-flights-snap-viktor-orban-hungary-ukraine-us-politics-live-news-updates",
+      id: "us-news/2025/nov/04/virginia-governor-abigail-spanberger",
       sectionName: "US news",
       sectionId: "us-news",
-      webPublicationDate: "2025-11-07T22:10:44Z",
-      webTitle:
-        "Pentagon is shifting weapons purchases to ‘a wartime footing’, Hegseth announces - live",
+      webPublicationDate: "2025-11-05T03:57:55Z",
+      webTitle: "Democrat Abigail Spanberger elected governor of Virginia",
       webUrl:
-        "https://www.theguardian.com/us-news/live/2025/nov/07/donald-trump-government-shutdown-air-traffic-flights-snap-viktor-orban-hungary-ukraine-us-politics-live-news-updates",
+        "https://www.theguardian.com/us-news/2025/nov/04/virginia-governor-abigail-spanberger",
       fields: {
         standfirst:
-          "<p>‘The defense acquisitions system as you know it is dead,’ Hegesth says in a speech to industry leaders, military commanders and officials</p>",
-        byline:
-          "Robert Mackey (now); Coral Murphy Marcos, Lucy Campbell, Chris Stein and Tom Ambrose (earlier)",
-        wordcount: "7652",
+          "<p>Former congresswoman beats Republican Winsome Earle-Sears to become Virginia’s first female governor</p>",
+        byline: "Chris Stein in Richmond, Virginia",
+        wordcount: "701",
+        trailText:
+          "Former congresswoman beats Republican Winsome Earle-Sears to become Virginia’s first female governor",
       },
+      elements: null,
     },
     {
-      id: "law/2025/nov/06/qatar-linked-intelligence-operation-targeted-icc-prosecutor-karim-khan-alleged-victim",
-      sectionName: "Law",
-      sectionId: "law",
-      webPublicationDate: "2025-11-07T22:04:52Z",
-      webTitle:
-        "Revealed: Qatar-linked intelligence operation targeted ICC prosecutor’s alleged victim",
-      webUrl:
-        "https://www.theguardian.com/law/2025/nov/06/qatar-linked-intelligence-operation-targeted-icc-prosecutor-karim-khan-alleged-victim",
-      fields: {
-        standfirst:
-          "<p>Exclusive: Woman who accused Karim Khan of misconduct was subject of covert operation involving two British private intelligence firms </p>",
-        byline: "Harry Davies andHenry Dyer",
-        wordcount: "1216",
-      },
-    },
-    {
-      id: "tv-and-radio/2025/nov/07/all-her-fault-review-sarah-snook-andrea-mara",
-      sectionName: "Television & radio",
-      sectionId: "tv-and-radio",
-      webPublicationDate: "2025-11-07T22:00:45Z",
-      webTitle:
-        "All Her Fault review – Sarah Snook’s terrifying thriller is an absolute pleasure to watch",
-      webUrl:
-        "https://www.theguardian.com/tv-and-radio/2025/nov/07/all-her-fault-review-sarah-snook-andrea-mara",
-      fields: {
-        standfirst:
-          "<p>This extraordinarily tight child kidnap drama knits all its threads together brilliantly – and the mighty Snook of Succession fame shines as a mother whose son is missing</p>",
-        byline: "Lucy Mangan",
-        wordcount: "847",
-      },
-    },
-    {
-      id: "us-news/2025/nov/07/government-shutdown-vote-latest-senate",
+      id: "us-news/2025/oct/10/virginia-governor-candidates-debate-abigail-spanberger",
       sectionName: "US news",
       sectionId: "us-news",
-      webPublicationDate: "2025-11-07T21:37:15Z",
+      webPublicationDate: "2025-10-10T17:00:09Z",
       webTitle:
-        "Republicans set to reject Democrats’ proposal to end longest shutdown in US history",
+        "Virginia governor candidates trade barbs in fiery election debate",
       webUrl:
-        "https://www.theguardian.com/us-news/2025/nov/07/government-shutdown-vote-latest-senate",
+        "https://www.theguardian.com/us-news/2025/oct/10/virginia-governor-candidates-debate-abigail-spanberger",
       fields: {
         standfirst:
-          '<p>Chuck Schumer offered a deal to reopen the government in exchange for a one-year healthcare subsidies extension</p><ul><li><p><a href="https://www.theguardian.com/us-news/live/2025/nov/07/donald-trump-government-shutdown-air-traffic-flights-snap-viktor-orban-hungary-ukraine-us-politics-live-news-updates">US politics live – latest updates</a></p></li></ul>',
-        byline: "Chris Stein",
-        wordcount: "841",
+          '<p>Republican Winsome Earle-Sears presses Abigail Spanberger over fellow Democrat’s ‘abhorrent’ texts</p><ul><li><p><a href="https://www.theguardian.com/us-news/live/2025/oct/10/letitia-james-donald-trump-us-politics-live-news-updates">US politics – live updates</a></p></li></ul>',
+        byline: "Edward Helmore",
+        wordcount: "665",
+        trailText:
+          "Republican Winsome Earle-Sears presses Abigail Spanberger over fellow Democrat’s ‘abhorrent’ texts",
       },
+      elements: [
+        {
+          relation: "main",
+          assets: [
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/dfd2c705072f7dfee8254120288bcc85f9976431/0_0_5000_3333/1000.jpg",
+              typeData: {
+                altText:
+                  "a woman speaks to people holding microphones in her direction",
+                credit: "Photograph: Graeme Sloan/Bloomberg via Getty Images",
+                copyright: "",
+              },
+            },
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/dfd2c705072f7dfee8254120288bcc85f9976431/0_0_5000_3333/500.jpg",
+              typeData: {
+                altText:
+                  "a woman speaks to people holding microphones in her direction",
+                credit: "Photograph: Graeme Sloan/Bloomberg via Getty Images",
+                copyright: "",
+              },
+            },
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/dfd2c705072f7dfee8254120288bcc85f9976431/0_0_5000_3333/140.jpg",
+              typeData: {
+                altText:
+                  "a woman speaks to people holding microphones in her direction",
+                credit: "Photograph: Graeme Sloan/Bloomberg via Getty Images",
+                copyright: "",
+              },
+            },
+          ],
+        },
+        {
+          relation: "thumbnail",
+          assets: [
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/dfd2c705072f7dfee8254120288bcc85f9976431/835_0_4165_3333/500.jpg",
+              typeData: {
+                altText:
+                  "a woman speaks to people holding microphones in her direction",
+                credit: "Photograph: Graeme Sloan/Bloomberg via Getty Images",
+                copyright: "",
+              },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: "us-news/2025/oct/24/letitia-james-mortgage-case-hearing",
+      sectionName: "US news",
+      sectionId: "us-news",
+      webPublicationDate: "2025-10-24T15:21:54Z",
+      webTitle:
+        "Letitia James pleads not guilty in Virginia mortgage fraud case",
+      webUrl:
+        "https://www.theguardian.com/us-news/2025/oct/24/letitia-james-mortgage-case-hearing",
+      fields: {
+        standfirst:
+          "<p>New York attorney general appears in court in Virginia in case brought after Trump called for her prosecution</p>",
+        byline: "Hugo Lowell in Washington",
+        wordcount: "680",
+        trailText:
+          "New York attorney general appears in court in Virginia in case brought after Trump called for her prosecution",
+      },
+      elements: [
+        {
+          relation: "main",
+          assets: [
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/a6dfa885ae28629ad71501b26dfc85fe25fdfd59/0_0_3456_2304/1000.jpg",
+              typeData: {
+                altText: "a woman in a suit looks out from behind microphones",
+                credit: "Photograph: John Clark/AP",
+                copyright: "",
+              },
+            },
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/a6dfa885ae28629ad71501b26dfc85fe25fdfd59/0_0_3456_2304/500.jpg",
+              typeData: {
+                altText: "a woman in a suit looks out from behind microphones",
+                credit: "Photograph: John Clark/AP",
+                copyright: "",
+              },
+            },
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/a6dfa885ae28629ad71501b26dfc85fe25fdfd59/0_0_3456_2304/140.jpg",
+              typeData: {
+                altText: "a woman in a suit looks out from behind microphones",
+                credit: "Photograph: John Clark/AP",
+                copyright: "",
+              },
+            },
+          ],
+        },
+        {
+          relation: "thumbnail",
+          assets: [
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/a6dfa885ae28629ad71501b26dfc85fe25fdfd59/288_0_2881_2304/500.jpg",
+              typeData: {
+                altText: "a woman in a suit looks out from behind microphones",
+                credit: "Photograph: John Clark/AP",
+                copyright: "",
+              },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: "us-news/2025/nov/07/carrie-coyner-virginia-republican-loses-reelection-jay-jones",
+      sectionName: "US news",
+      sectionId: "us-news",
+      webPublicationDate: "2025-11-07T19:59:52Z",
+      webTitle:
+        "Virginia Republican who shared violent texts from prominent Democrat loses re-election",
+      webUrl:
+        "https://www.theguardian.com/us-news/2025/nov/07/carrie-coyner-virginia-republican-loses-reelection-jay-jones",
+      fields: {
+        standfirst:
+          "<p>Carrie Coyner conceded defeat after igniting text scandal over Democrat imagining ‘two bullets’ in rival’s head</p>",
+        byline: "Ramon Antonio Vargas",
+        wordcount: "795",
+        trailText:
+          "Carrie Coyner conceded defeat after igniting text scandal over Democrat imagining ‘two bullets’ in rival’s head",
+      },
+      elements: [
+        {
+          relation: "main",
+          assets: [
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/e46af1bb1818bcd0d8ff66d2a54fe4f4b3828f83/0_0_5080_3388/1000.jpg",
+              typeData: {
+                altText: "a woman speaking to a man",
+                credit: "Photograph: Steve Helber/AP",
+                copyright: "",
+              },
+            },
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/e46af1bb1818bcd0d8ff66d2a54fe4f4b3828f83/0_0_5080_3388/500.jpg",
+              typeData: {
+                altText: "a woman speaking to a man",
+                credit: "Photograph: Steve Helber/AP",
+                copyright: "",
+              },
+            },
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/e46af1bb1818bcd0d8ff66d2a54fe4f4b3828f83/0_0_5080_3388/140.jpg",
+              typeData: {
+                altText: "a woman speaking to a man",
+                credit: "Photograph: Steve Helber/AP",
+                copyright: "",
+              },
+            },
+          ],
+        },
+        {
+          relation: "thumbnail",
+          assets: [
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/e46af1bb1818bcd0d8ff66d2a54fe4f4b3828f83/423_0_4233_3388/500.jpg",
+              typeData: {
+                altText: "a woman speaking to a man",
+                credit: "Photograph: Steve Helber/AP",
+                copyright: "",
+              },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: "us-news/2025/aug/25/epstein-accuser-virginia-giuffres-memoir-to-be-published-posthumously",
+      sectionName: "US news",
+      sectionId: "us-news",
+      webPublicationDate: "2025-08-24T23:03:58Z",
+      webTitle:
+        "Epstein accuser Virginia Giuffre’s memoir to be published posthumously",
+      webUrl:
+        "https://www.theguardian.com/us-news/2025/aug/25/epstein-accuser-virginia-giuffres-memoir-to-be-published-posthumously",
+      fields: {
+        standfirst:
+          "<p>Nobody’s Girl, which Giuffre had been working on before her death, is set to be released this autumn</p>",
+        byline: "Donna Ferguson and agency",
+        wordcount: "614",
+        trailText:
+          "Nobody’s Girl, which Giuffre had been working on before her death, is set to be released this autumn",
+      },
+      elements: [
+        {
+          relation: "main",
+          assets: [
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/04faf0e5b2f341ef10a93f7abbad24416814eea6/64_0_2585_2068/1000.jpg",
+              typeData: {
+                altText: "Virginia Giuffre, with a photo of herself as a teen ",
+                credit:
+                  "Photograph: Miami Herald/Tribune News Service/Getty Images",
+                copyright: "",
+              },
+            },
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/04faf0e5b2f341ef10a93f7abbad24416814eea6/64_0_2585_2068/500.jpg",
+              typeData: {
+                altText: "Virginia Giuffre, with a photo of herself as a teen ",
+                credit:
+                  "Photograph: Miami Herald/Tribune News Service/Getty Images",
+                copyright: "",
+              },
+            },
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/04faf0e5b2f341ef10a93f7abbad24416814eea6/64_0_2585_2068/140.jpg",
+              typeData: {
+                altText: "Virginia Giuffre, with a photo of herself as a teen ",
+                credit:
+                  "Photograph: Miami Herald/Tribune News Service/Getty Images",
+                copyright: "",
+              },
+            },
+          ],
+        },
+        {
+          relation: "thumbnail",
+          assets: [
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/04faf0e5b2f341ef10a93f7abbad24416814eea6/64_0_2585_2068/500.jpg",
+              typeData: {
+                altText: "Virginia Giuffre, with a photo of herself as a teen ",
+                credit:
+                  "Photograph: Miami Herald/Tribune News Service/Getty Images",
+                copyright: "",
+              },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: "books/2025/jul/27/reading-deeper-into-virginia-woolfs-vicious-diary-entry",
+      sectionName: "Books",
+      sectionId: "books",
+      webPublicationDate: "2025-07-27T17:25:55Z",
+      webTitle:
+        "Reading deeper into Virginia Woolf’s vicious diary entry | Letters",
+      webUrl:
+        "https://www.theguardian.com/books/2025/jul/27/reading-deeper-into-virginia-woolfs-vicious-diary-entry",
+      fields: {
+        standfirst:
+          "<p><strong>Maggie Humm </strong>says the author’s recollection of encountering a group of learning-disabled people is surely a defence mechanism and projection</p>",
+        byline: "",
+        wordcount: "179",
+        trailText:
+          "Letter: <strong>Maggie Humm </strong>says the author’s recollection of encountering a group of learning-disabled people is surely a defence mechanism and projection",
+      },
+      elements: [
+        {
+          relation: "main",
+          assets: [
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/021922667b0afd13becd7b4c8da45a86696715a4/531_0_2537_2030/1000.jpg",
+              typeData: {
+                altText: "Virginia Woolf",
+                credit: "Photograph: Pictorial Press Ltd/Alamy",
+                copyright: "",
+              },
+            },
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/021922667b0afd13becd7b4c8da45a86696715a4/531_0_2537_2030/500.jpg",
+              typeData: {
+                altText: "Virginia Woolf",
+                credit: "Photograph: Pictorial Press Ltd/Alamy",
+                copyright: "",
+              },
+            },
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/021922667b0afd13becd7b4c8da45a86696715a4/531_0_2537_2030/140.jpg",
+              typeData: {
+                altText: "Virginia Woolf",
+                credit: "Photograph: Pictorial Press Ltd/Alamy",
+                copyright: "",
+              },
+            },
+          ],
+        },
+        {
+          relation: "thumbnail",
+          assets: [
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/021922667b0afd13becd7b4c8da45a86696715a4/531_0_2537_2030/500.jpg",
+              typeData: {
+                altText: "Virginia Woolf",
+                credit: "Photograph: Pictorial Press Ltd/Alamy",
+                copyright: "",
+              },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: "uk-news/2025/oct/31/buckingham-palace-statement-andrew-virginia-giuffre-family",
+      sectionName: "UK news",
+      sectionId: "uk-news",
+      webPublicationDate: "2025-10-31T18:54:04Z",
+      webTitle:
+        "Palace’s statement on Andrew is ‘vindication’ for Virginia Giuffre, says her family",
+      webUrl:
+        "https://www.theguardian.com/uk-news/2025/oct/31/buckingham-palace-statement-andrew-virginia-giuffre-family",
+      fields: {
+        standfirst:
+          "<p>Women’s rights groups say announcement sends important message to survivors of abuse</p>",
+        byline: "Neha Gohil",
+        wordcount: "628",
+        trailText:
+          "Women’s rights groups say announcement sends important message to survivors of abuse",
+      },
+      elements: [
+        {
+          relation: "main",
+          assets: [
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/11a7c51d62b2f27f0a280782f9278865b6901c0c/905_0_4433_3548/1000.jpg",
+              typeData: {
+                altText: "Virginia Giuffre",
+                credit: "Photograph: Bebeto Matthews/AP",
+                copyright: "",
+              },
+            },
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/11a7c51d62b2f27f0a280782f9278865b6901c0c/905_0_4433_3548/500.jpg",
+              typeData: {
+                altText: "Virginia Giuffre",
+                credit: "Photograph: Bebeto Matthews/AP",
+                copyright: "",
+              },
+            },
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/11a7c51d62b2f27f0a280782f9278865b6901c0c/905_0_4433_3548/140.jpg",
+              typeData: {
+                altText: "Virginia Giuffre",
+                credit: "Photograph: Bebeto Matthews/AP",
+                copyright: "",
+              },
+            },
+          ],
+        },
+        {
+          relation: "thumbnail",
+          assets: [
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/11a7c51d62b2f27f0a280782f9278865b6901c0c/905_0_4433_3548/500.jpg",
+              typeData: {
+                altText: "Virginia Giuffre",
+                credit: "Photograph: Bebeto Matthews/AP",
+                copyright: "",
+              },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: "us-news/2025/oct/22/university-of-virginia-trump-administration-demands",
+      sectionName: "US news",
+      sectionId: "us-news",
+      webPublicationDate: "2025-10-22T22:15:01Z",
+      webTitle:
+        "University of Virginia agrees to Trump administration demands over admissions and hiring",
+      webUrl:
+        "https://www.theguardian.com/us-news/2025/oct/22/university-of-virginia-trump-administration-demands",
+      fields: {
+        standfirst:
+          "<p>School joins University of Pennsylvania, Columbia and Brown in bowing to White House to restore funding</p>",
+        byline: "Eric Berger",
+        wordcount: "330",
+        trailText:
+          "School joins University of Pennsylvania, Columbia and Brown in bowing to White House to restore funding",
+      },
+      elements: [
+        {
+          relation: "main",
+          assets: [
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/2b2fb1003590ef7699c38d3f6b763b52c1fc5458/0_0_3878_2908/1000.jpg",
+              typeData: {
+                altText:
+                  "The Rotunda of the University of Virginia, whose president, Jim Ryan, resigned in June to resolve a justice department investigation.",
+                credit: "Photograph: Peter Morgan/AP",
+                copyright: "",
+              },
+            },
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/2b2fb1003590ef7699c38d3f6b763b52c1fc5458/0_0_3878_2908/500.jpg",
+              typeData: {
+                altText:
+                  "The Rotunda of the University of Virginia, whose president, Jim Ryan, resigned in June to resolve a justice department investigation.",
+                credit: "Photograph: Peter Morgan/AP",
+                copyright: "",
+              },
+            },
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/2b2fb1003590ef7699c38d3f6b763b52c1fc5458/0_0_3878_2908/140.jpg",
+              typeData: {
+                altText:
+                  "The Rotunda of the University of Virginia, whose president, Jim Ryan, resigned in June to resolve a justice department investigation.",
+                credit: "Photograph: Peter Morgan/AP",
+                copyright: "",
+              },
+            },
+          ],
+        },
+        {
+          relation: "thumbnail",
+          assets: [
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/2b2fb1003590ef7699c38d3f6b763b52c1fc5458/122_0_3635_2908/500.jpg",
+              typeData: {
+                altText:
+                  "The Rotunda of the University of Virginia, whose president, Jim Ryan, resigned in June to resolve a justice department investigation.",
+                credit: "Photograph: Peter Morgan/AP",
+                copyright: "",
+              },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: "us-news/2025/jul/30/virginia-council-member-attacked-set-on-fire",
+      sectionName: "US news",
+      sectionId: "us-news",
+      webPublicationDate: "2025-07-30T19:03:25Z",
+      webTitle: "Virginia council member attacked and set on fire",
+      webUrl:
+        "https://www.theguardian.com/us-news/2025/jul/30/virginia-council-member-attacked-set-on-fire",
+      fields: {
+        standfirst:
+          "<p>Police say attack on Lee Vogler at office of magazine was related to ‘personal matter’ and not his politics or position</p>",
+        byline: "Anna Betts",
+        wordcount: "470",
+        trailText:
+          "Police say attack on Lee Vogler at office of magazine was related to ‘personal matter’ and not his politics or position",
+      },
+      elements: [
+        {
+          relation: "main",
+          assets: [
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/1a18f2c05b1c009c2b4e6a985771e3cce29cac94/81_0_1617_1070/1000.jpg",
+              typeData: {
+                altText: "a man in a suit smiles",
+                credit: "Photograph: City of Danville",
+                copyright: "",
+              },
+            },
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/1a18f2c05b1c009c2b4e6a985771e3cce29cac94/81_0_1617_1070/500.jpg",
+              typeData: {
+                altText: "a man in a suit smiles",
+                credit: "Photograph: City of Danville",
+                copyright: "",
+              },
+            },
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/1a18f2c05b1c009c2b4e6a985771e3cce29cac94/81_0_1617_1070/140.jpg",
+              typeData: {
+                altText: "a man in a suit smiles",
+                credit: "Photograph: City of Danville",
+                copyright: "",
+              },
+            },
+          ],
+        },
+        {
+          relation: "thumbnail",
+          assets: [
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/1a18f2c05b1c009c2b4e6a985771e3cce29cac94/220_0_1337_1070/500.jpg",
+              typeData: {
+                altText: "a man in a suit smiles",
+                credit: "Photograph: City of Danville",
+                copyright: "",
+              },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: "us-news/2025/nov/06/virginia-school-teacher-shot-awarded-10m",
+      sectionName: "US news",
+      sectionId: "us-news",
+      webPublicationDate: "2025-11-06T20:16:18Z",
+      webTitle:
+        "Virginia school teacher shot by six-year-old student awarded $10m in damages",
+      webUrl:
+        "https://www.theguardian.com/us-news/2025/nov/06/virginia-school-teacher-shot-awarded-10m",
+      fields: {
+        standfirst:
+          "<p>Abigail Zwerner alleged assistant principal ignored reports that a firearm was on school property</p>",
+        byline: "Edward Helmore and agencies ",
+        wordcount: "643",
+        trailText:
+          "Abigail Zwerner alleged assistant principal ignored reports that a firearm was on school property",
+      },
+      elements: [
+        {
+          relation: "main",
+          assets: [
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/f34bece6aa93b5adacb69a3c36bfbfa3857a0f60/0_0_3369_2246/1000.jpg",
+              typeData: {
+                altText: "two women holding each other",
+                credit: "Photograph: Kendall Warner/AP",
+                copyright: "",
+              },
+            },
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/f34bece6aa93b5adacb69a3c36bfbfa3857a0f60/0_0_3369_2246/500.jpg",
+              typeData: {
+                altText: "two women holding each other",
+                credit: "Photograph: Kendall Warner/AP",
+                copyright: "",
+              },
+            },
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/f34bece6aa93b5adacb69a3c36bfbfa3857a0f60/0_0_3369_2246/140.jpg",
+              typeData: {
+                altText: "two women holding each other",
+                credit: "Photograph: Kendall Warner/AP",
+                copyright: "",
+              },
+            },
+          ],
+        },
+        {
+          relation: "thumbnail",
+          assets: [
+            {
+              type: "image",
+              file: "https://media.guim.co.uk/f34bece6aa93b5adacb69a3c36bfbfa3857a0f60/281_0_2808_2246/500.jpg",
+              typeData: {
+                altText: "two women holding each other",
+                credit: "Photograph: Kendall Warner/AP",
+                copyright: "",
+              },
+            },
+          ],
+        },
+      ],
     },
   ],
-  Region: "",
 };
