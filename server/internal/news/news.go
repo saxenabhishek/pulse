@@ -16,23 +16,42 @@ const BASE_URL = "https://content.guardianapis.com/search"
 const API_KEY = "test"
 
 var httpcall = common.MakeHttpCall
-var showFields = []string{"standfirst", "wordcount", "byline"}
+var showFields = []string{"standfirst", "wordcount", "byline", "trailText"}
 var c = cache.New(15*time.Minute, 20*time.Minute)
+
+type typeData struct {
+	AltText   string `json:"altText"`
+	Credit    string `json:"credit"`
+	Copyright string `json:"copyright"`
+}
+
+type Asset struct {
+	Type     string   `json:"type"`
+	File     string   `json:"file"`
+	TypeData typeData `json:"typeData"`
+}
+
+type element struct {
+	Relation string  `json:"relation"`
+	Assets   []Asset `json:"assets"`
+}
 
 type fields struct {
 	Standfirst string `json:"standfirst"`
 	Byline     string `json:"byline"`
 	Wordcount  string `json:"wordcount"`
+	TrailText  string `json:"trailText"`
 }
 
 type results struct {
-	Id                 string `json:"id"`
-	SectionName        string `json:"sectionName"`
-	SectionId          string `json:"sectionId"`
-	WebPublicationDate string `json:"webPublicationDate"`
-	WebTitle           string `json:"webTitle"`
-	WebUrl             string `json:"webUrl"`
-	Fields             fields `json:"fields"`
+	Id                 string    `json:"id"`
+	SectionName        string    `json:"sectionName"`
+	SectionId          string    `json:"sectionId"`
+	WebPublicationDate string    `json:"webPublicationDate"`
+	WebTitle           string    `json:"webTitle"`
+	WebUrl             string    `json:"webUrl"`
+	Fields             fields    `json:"fields"`
+	Elements           []element `json:"elements"`
 }
 
 type res struct {
@@ -65,6 +84,8 @@ func constructQuery(region string) string {
 	params := url.Values{}
 	params.Set("api-key", API_KEY)
 	params.Set("show-fields", constructShowFields())
+	params.Set("show-elements", "image")
+
 	if region != "" {
 		params.Add("q", region)
 	}

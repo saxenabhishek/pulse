@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import type { SectionGroup } from "./Content";
+import { AspectRatio } from "./ui/aspect-ratio";
 
 export interface props {
   item: SectionGroup;
@@ -10,20 +11,45 @@ export const ContentSection: React.FC<props> = ({
   item,
 }): React.JSX.Element => {
   return (
-    <section className="grid grid-cols-2 w-full gap-2">
-      <h3 className="border-b-2 pb-2 text-2xl border-primary tracking-tight  col-span-2 py-4">
+    <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full gap-2 lg:gap-4">
+      <h3 className="border-b-2 pb-2 text-4xl border-primary tracking-tight col-span-full py-4 font-cookie">
         {item.sectionName}
       </h3>
-      {item.articles.map((atcl, arID) => (
-        <article key={atcl.id}>
-          <h4 className="leading-6 tracking-tight text-xl py-2">
-            {atcl.webTitle}
-          </h4>
-          <p className="text-xs">by {atcl.fields.byline}</p>
-          <p className="text-xs">
-            {getReadTime(Number(atcl.fields.wordcount))}
-          </p>
-          <p className="text-xs">{formatTimeAgo(atcl.webPublicationDate)}</p>
+      {item.articles.map((article, arId) => (
+        <article
+          key={article.id}
+          className={`flex flex-col align-middle justify-items-center text-xs sm:text-base py-4 font-noto font-stretch-extra-condensed ${
+            arId == 0
+              ? "col-span-full lg:flex-row"
+              : " border-b-2 border-stone-300"
+          }`}
+        >
+          <AspectRatio
+            ratio={arId == 0 ? 3 / 1 : 16 / 9}
+            className="bg-muted rounded-lg"
+          >
+            <img
+              className="h-full w-full rounded-lg object-cover"
+              srcSet={article.mainImg?.srcset}
+              sizes="(max-width: 600px) 480px, 800px"
+              alt={article.mainImg?.altText}
+            />
+          </AspectRatio>
+          <div className="pl-2 ">
+            <h4 className="text-base sm:text-2xl py-1 font-oldStdtt  sm:leading-9 tracking-wide">
+              {article.webTitle}
+            </h4>
+
+            <h4 className="text-sm sm:text-xl pb-2 font-oldStdtt tracking-tighter">
+              {article.fields.trailText}
+            </h4>
+            {article.fields.byline && (
+              <p className="">by {article.fields.byline}</p>
+            )}
+
+            <p className="">{getReadTime(Number(article.fields.wordcount))}</p>
+            <p className="">{formatTimeAgo(article.webPublicationDate)}</p>
+          </div>
         </article>
       ))}
     </section>

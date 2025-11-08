@@ -16,6 +16,19 @@ export const getPong = async () => {
     });
 };
 
+export interface element {
+  relation: string;
+  assets: {
+    type: string;
+    file: string;
+    typeData: {
+      altText: string;
+      credit: string;
+      copyright: string;
+    };
+  }[];
+}
+
 export interface result {
   id: string;
   sectionName: string;
@@ -27,7 +40,9 @@ export interface result {
     standfirst: string;
     byline: string;
     wordcount: string;
+    trailText: string;
   };
+  elements: null | element[];
 }
 
 export interface articleResponse {
@@ -49,6 +64,7 @@ export const getArticles = async (
           setRegion(res.data.Region);
         }
       } else {
+        console.log(res.data);
         throw new Error("Returned response is not ok");
       }
     })
@@ -57,7 +73,7 @@ export const getArticles = async (
     });
 };
 
-export const MockgetArticles = async (
+export const MockGetArticles = async (
   setArticles: CallableFunction,
   setRegion: CallableFunction
 ) => {

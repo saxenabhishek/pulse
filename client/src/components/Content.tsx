@@ -1,15 +1,34 @@
 import * as React from "react";
-import type { result } from "@/service/news";
+import type { element, result } from "@/service/news";
 import { ContentSection } from "./ContentSection";
 
 export interface props {
   articles?: result[];
 }
+interface ArticleImageData {
+  mainImg?: {
+    srcset?: string;
+    altText?: string;
+    credit?: string;
+    copyright?: string;
+    src?: string;
+  };
+  thumbnail?: {
+    imgURL?: string;
+    altText?: string;
+    credit?: string;
+    copyright?: string;
+  };
+}
+
+interface ArticleWithDate extends result, ArticleImageData {
+  publishedAt: Date;
+}
 
 export interface SectionGroup {
   sectionId: string;
   sectionName: string;
-  articles: result[];
+  articles: ArticleWithDate[];
 }
 
 type SectionsById = Record<string, SectionGroup>;
@@ -31,18 +50,71 @@ export const Content: React.FC<props> = ({ articles }): React.JSX.Element => {
 };
 
 const buildSections = (response: result[]): SectionsById => {
-  return response.reduce<SectionsById>((acc, article) => {
-    const { sectionId, sectionName } = article;
+  const sections: SectionsById = {};
 
-    if (!acc[sectionId]) {
-      acc[sectionId] = {
+  for (const article of response) {
+    const { sectionId, sectionName, webPublicationDate, elements } = article;
+    const publishedAt = new Date(webPublicationDate);
+
+    const imgData = extractImageData(elements);
+
+    const articleWithDate: ArticleWithDate = {
+      ...article,
+      publishedAt,
+      ...imgData,
+    };
+
+    if (!sections[sectionId]) {
+      sections[sectionId] = {
         sectionId: sectionId,
         sectionName: sectionName,
         articles: [],
       };
     }
 
-    acc[sectionId]["articles"].push(article);
-    return acc;
-  }, {});
+    sections[sectionId]["articles"].push(articleWithDate);
+  }
+  for (const section of Object.values(sections)) {
+    section.articles.sort(
+      (a, b) => b.publishedAt.getTime() - a.publishedAt.getTime()
+    );
+  }
+  return sections;
 };
+
+function extractImageData(elements: element[] | null) {
+  if (elements === null) {
+    return {};
+  }
+
+  var imgData: ArticleImageData = {};
+  for (const element of elements) {
+    if (element.relation === "main") {
+      var file_urls = [];
+      const as = element.assets[0];
+      imgData.mainImg = {
+        altText: as.typeData.altText,
+        copyright: as.typeData.copyright,
+        credit: as.typeData.credit,
+        src: as.file,
+      };
+      for (const as of element.assets) {
+        console.log(as.file.split("/"));
+        const sz = Number(as.file.split("/").at(-1)?.split(".").at(0));
+        file_urls.push(`${as.file} ${sz}w`);
+      }
+      imgData.mainImg.srcset = file_urls.join(",");
+    } else {
+      const file = element.assets[0].file;
+      const typeData = element.assets[0].typeData;
+      element.assets[0];
+      imgData.thumbnail = {
+        altText: typeData.altText,
+        copyright: typeData.copyright,
+        credit: typeData.credit,
+        imgURL: file,
+      };
+    }
+  }
+  return imgData;
+}
