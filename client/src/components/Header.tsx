@@ -10,7 +10,7 @@ export const Header: React.FC<props> = ({
   const today = new Date();
 
   const options: Intl.DateTimeFormatOptions = {
-    weekday: "long",
+    weekday: "short",
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -20,13 +20,15 @@ export const Header: React.FC<props> = ({
 
   return (
     <div className="font-serif text-center">
-      <div className="text-xs md:text-base flex justify-between py-2 border-y-2 text-gray-600 uppercase">
+      <div className="text-xs md:text-base flex justify-between py-2 border-y-2 border-stone-700 text-black font-oldStdtt">
         <p>{region} Edition</p>
         <p>{formattedDate}</p>
         <p>Volume No. 308</p>
       </div>
-      <h1 className="text-6xl py-4">The Pulse</h1>
-      <h2 className="text-xl pb-2 uppercase">All the news worth Reading</h2>
+      <h1 className="text-8xl tracking-wide font-cookie py-6">The Pulse</h1>
+      <h2 className="text-3xl pb-2 font-cookie capitalize ">
+        All the news worth Reading
+      </h2>
     </div>
   );
 };
