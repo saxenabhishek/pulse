@@ -19,7 +19,7 @@ export const Header: React.FC<props> = ({
   const formattedDate = new Intl.DateTimeFormat("en-US", options).format(today);
 
   return (
-    <div className="font-serif">
+    <div className="font-serif text-center">
       <div className="text-xs md:text-base flex justify-between py-2 border-y-2 text-gray-600 uppercase">
         <p>{region} Edition</p>
         <p>{formattedDate}</p>
