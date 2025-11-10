@@ -2,31 +2,27 @@ package main
 
 import (
 	"log"
-	"net/http"
 	"os"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
-	"github.com/saxenabhishek/pulse/server/internal/ip"
-	"github.com/saxenabhishek/pulse/server/internal/news"
 )
 
-func pong(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{"message": "pong"})
+type envConfig struct {
+	PORT    string
+	API_KEY string
 }
 
-func getIPdetail(c *gin.Context) {
-	rg, err := ip.GetRegionFromContext(c)
-	if err != nil {
-		rg = ""
+func getEnvVars() envConfig {
+	API_KEY, ok := os.LookupEnv("API_KEY")
+	if !ok {
+		log.Fatal("api key not found in env, use `API_KEY`")
 	}
-	content, err := news.GetContentCached(rg)
-	if err != nil {
-		c.Error(err)
-		c.AbortWithStatus(http.StatusInternalServerError)
-		return
+	PORT, ok := os.LookupEnv("PORT")
+	if !ok {
+		PORT = "8080"
 	}
-	c.JSON(http.StatusOK, content)
+	return envConfig{PORT: PORT, API_KEY: API_KEY}
 }
 
 func main() {
@@ -35,17 +31,13 @@ func main() {
 	r := gin.Default()
 	cors_config := cors.DefaultConfig()
 	cors_config.AllowOrigins = []string{"http://localhost:5500", "https://saxenabhishek.me"}
-	// config.AllowAllOrigins = true
 	r.Use(cors.New(cors_config))
 	r.TrustedPlatform = gin.PlatformGoogleAppEngine
 
-	PORT, ok := os.LookupEnv("PORT")
-	if !ok {
-		PORT = "8080"
-	}
+	envConfigObj := getEnvVars()
 
 	l.Printf("Started Pulse Server")
 	r.GET("/ping", pong)
-	r.GET("/content", getIPdetail)
-	r.Run(":" + PORT)
+	r.GET("/content", createGetIPdetail(envConfigObj))
+	r.Run("0.0.0.0:" + envConfigObj.PORT)
 }

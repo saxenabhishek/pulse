@@ -13,7 +13,6 @@ import (
 )
 
 const BASE_URL = "https://content.guardianapis.com/search"
-const API_KEY = "test"
 
 var httpcall = common.MakeHttpCall
 var showFields = []string{"standfirst", "wordcount", "byline", "trailText"}
@@ -80,9 +79,9 @@ func constructShowFields() string {
 	return strings.Join(showFields, ",")
 }
 
-func constructQuery(region string) string {
+func constructQuery(region string, api_key string) string {
 	params := url.Values{}
-	params.Set("api-key", API_KEY)
+	params.Set("api-key", api_key)
 	params.Set("show-fields", constructShowFields())
 	params.Set("show-elements", "image")
 
@@ -94,8 +93,8 @@ func constructQuery(region string) string {
 	return BASE_URL + "?" + queryString
 }
 
-func GetContent(region string) (*res, error) {
-	query := constructQuery(region)
+func GetContent(region string, API_KEY string) (*res, error) {
+	query := constructQuery(region, API_KEY)
 	body, err := httpcall(query, http.DefaultClient)
 	if err != nil {
 		return nil, err
@@ -108,14 +107,14 @@ func GetContent(region string) (*res, error) {
 	return &res, nil
 }
 
-func GetContentCached(region string) (*res, error) {
+func GetContentCached(region string, API_KEY string) (*res, error) {
 	if v, found := c.Get(region); found {
 		if cached, ok := v.(*res); ok {
 			return cached, nil
 		}
 	}
 
-	r, err := GetContent(region)
+	r, err := GetContent(region, API_KEY)
 	if err != nil {
 		return nil, err
 	}
