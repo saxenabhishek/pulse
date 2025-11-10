@@ -44,6 +44,9 @@
   --font-noto: "Noto Sans", sans-serif;
   --font-noto--font-variation-settings: "wdth" 60;
   --font-oldStdtt: "Old Standard TT", serif;
+  --font-cookie--font-display: swap;
+  --font-noto--font-display: swap;
+  --font-oldStdtt--font-display: swap;
 }
 
 :root {
