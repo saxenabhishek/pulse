@@ -32,9 +32,11 @@ export const ContentSection: React.FC<props> = ({
             >
               {article.mainImg && (
                 <img
+                  fetchPriority={arId == 0 ? "high" : "low"}
                   className="h-full w-full rounded-lg object-cover"
                   srcSet={article.mainImg?.srcset}
-                  sizes="(max-width: 600px) 480px, 800px"
+                  src={article.thumbnail?.imgURL}
+                  sizes="(max-width: 600px) 140px,(max-width: 1024px) 500px,1000px"
                   alt={article.mainImg?.altText}
                 />
               )}
